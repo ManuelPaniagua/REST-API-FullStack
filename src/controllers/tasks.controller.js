@@ -2,7 +2,11 @@ import { v4 } from 'uuid';
 import { getConnection } from '../database.js';
 
 export const getTasks = (req, res) => {
-    res.send('Hello World!')
+    const db = getConnection()
+    res.json(db.data.tasks)
+    //other option
+    //const tasks = getConnection().data.tasks
+    //res.json(tasks)
 }
 export const createTask = async (req, res) => {
     const newTask = {
@@ -22,7 +26,11 @@ export const createTask = async (req, res) => {
     }
 }
 export const getTask = (req, res) => {
-    res.send('By Id!')
+    const taskFound = getConnection().data.tasks.find(task => task.id === req.params.id);
+    if (!taskFound){
+        return res.sendStatus(404);  
+    } 
+    res.json(taskFound);
 }
 export const updateTask = (req, res) => {
     res.send('Updating T!')
