@@ -32,11 +32,32 @@ export const getTask = (req, res) => {
     } 
     res.json(taskFound);
 }
-export const updateTask = (req, res) => {
-    res.send('Updating T!')
+export const updateTask = async (req, res) => {
+    const db = getConnection();
+    const taskFound = getConnection().data.tasks.find(task => task.id === req.params.id);
+    if (!taskFound){
+     return res.sendStatus(404);  
+     }
+    taskFound.name = req.body.name
+    taskFound.description = req.body.description
+     //map the object, if = id replace the taskFound otherwise keep the same
+    db.data.tasks.map(task => task.id === req.params.id ? taskFound : task);
+
+    await db.write()
+
+    res.json(taskFound)
 }
-export const deleteTask = (req, res) => {
-    res.send('Deleting T!')
+export const deleteTask = async (req, res) => {
+   const db = getConnection();
+   const taskFound = getConnection().data.tasks.find(task => task.id === req.params.id);
+   if (!taskFound){
+    return res.sendStatus(404);  
+    }
+    const newTasks = db.data.tasks.filter(t => t.id !== req.params.id)
+    db.data.tasks = newTasks;
+
+    await db.write()
+    res.json(taskFound)
 }
 export const count = (req, res) => {
     res.send('count!')
