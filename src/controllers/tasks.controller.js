@@ -60,5 +60,6 @@ export const deleteTask = async (req, res) => {
     res.json(taskFound)
 }
 export const count = (req, res) => {
-    res.send('count!')
+    const totalTasks = getConnection().data.tasks.length;
+    res.json(totalTasks);
 }
