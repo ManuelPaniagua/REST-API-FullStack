@@ -8,7 +8,7 @@ import taskRoutes from "./src/routes/tasks.js";
 const app = express();
 
 // settings
-app.set("port", process.env.PORT || 3000);
+// app.set("port", process.env.PORT || 3000);
 
 // const options = {
 //   definition: {
@@ -29,7 +29,7 @@ app.set("port", process.env.PORT || 3000);
 // const specs = swaggerJsDoc(options);
 
 // middlewares
-// app.use(express.json());
+app.use(express.json());    //save the data in the req.body
 // app.use(morgan("dev"));
 // app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
