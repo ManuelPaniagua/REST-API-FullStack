@@ -1,6 +1,14 @@
 import { app } from '../app.js';
 import { createConnection } from './database.js';
 
-createConnection();
-app.listen(3000);
-console.log('Server is running on port http://localhost:3000');
+// Initialize the database connection
+createConnection()
+  .then(() => {
+    const PORT = 3000;
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error('Failed to initialize database:', error);
+  });
