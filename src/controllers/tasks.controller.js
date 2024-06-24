@@ -65,6 +65,7 @@ export const deleteTask = async (req, res) => {
   await db.write();
   res.json(taskFound);
 };
+
 export const count = (req, res) => {
   const totalTasks = getConnection().data.tasks.length;
   res.json(totalTasks);
