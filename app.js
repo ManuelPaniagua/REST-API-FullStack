@@ -1,7 +1,7 @@
-import express from 'express'
+import express from 'express';
 
 // import morgan from "morgan";
-import taskRoutes from "./src/routes/tasks.js";
+import taskRoutes from './src/routes/tasks.js';
 // import swaggerUI from "swagger-ui-express";
 // import swaggerJsDoc from "swagger-jsdoc";
 
@@ -29,7 +29,7 @@ const app = express();
 // const specs = swaggerJsDoc(options);
 
 // middlewares
-app.use(express.json());    //save the data in the req.body
+app.use(express.json()); //save the data in the req.body
 // app.use(morgan("dev"));
 // app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
