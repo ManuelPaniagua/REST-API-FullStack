@@ -4,7 +4,7 @@
   "exports": "./index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:rest": "mocha __tests__/restapi.test.js --exit",
     "star": "node src/index.js",
     "dev": "nodemon src/index.js --ignore db.json"
   },
@@ -19,6 +19,10 @@
     "uuid": "^10.0.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.4"
+    "chai": "^5.1.1",
+    "mocha": "^10.4.0",
+    "nodemon": "^3.1.4",
+    "supertest": "^7.0.0",
+    "@babel/register": "^7.16.0"
   }
 }

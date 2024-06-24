@@ -2,6 +2,7 @@ import express from 'express';
 
 // import morgan from "morgan";
 import taskRoutes from './src/routes/tasks.js';
+import { createConnection } from './src/database.js';
 // import swaggerUI from "swagger-ui-express";
 // import swaggerJsDoc from "swagger-jsdoc";
 
@@ -35,5 +36,10 @@ app.use(express.json()); //save the data in the req.body
 
 // Routes
 app.use(taskRoutes);
+
+// Initialize the database before starting the server
+createConnection().catch((err) =>
+  console.error('Failed to initialize database:', err),
+);
 
 export { app };
