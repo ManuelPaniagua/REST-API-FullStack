@@ -1,0 +1,190 @@
+openapi: 3.0.0
+info:
+  title: Task Management API
+  description: API documentation for managing tasks using a RESTful interface.
+  version: 1.0.0
+  contact:
+    name: Manuel Paniagua
+    email: your-email@example.com
+
+servers:
+  - url: http://localhost:3000
+    description: Development server
+
+paths:
+  /task:
+    get:
+      summary: Get all tasks
+      responses:
+        '200':
+          description: A list of tasks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: The unique identifier of the task
+                    name:
+                      type: string
+                      description: The name of the task
+                    description:
+                      type: string
+                      description: The description of the task
+
+    post:
+      summary: Create a new task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The name of the task
+                description:
+                  type: string
+                  description: The description of the task
+              required:
+                - name
+                - description
+      responses:
+        '200':
+          description: The created task
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The unique identifier of the task
+                  name:
+                    type: string
+                    description: The name of the task
+                  description:
+                    type: string
+                    description: The description of the task
+
+  /task/{id}:
+    get:
+      summary: Get a task by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the task to retrieve
+      responses:
+        '200':
+          description: The task with the specified ID
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The unique identifier of the task
+                  name:
+                    type: string
+                    description: The name of the task
+                  description:
+                    type: string
+                    description: The description of the task
+        '404':
+          description: Task not found
+
+    put:
+      summary: Update a task by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the task to update
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The new name of the task
+                description:
+                  type: string
+                  description: The new description of the task
+              required:
+                - name
+                - description
+      responses:
+        '200':
+          description: The updated task
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The unique identifier of the task
+                  name:
+                    type: string
+                    description: The updated name of the task
+                  description:
+                    type: string
+                    description: The updated description of the task
+        '404':
+          description: Task not found
+
+    delete:
+      summary: Delete a task by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the task to delete
+      responses:
+        '200':
+          description: The deleted task
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The unique identifier of the deleted task
+                  name:
+                    type: string
+                    description: The name of the deleted task
+                  description:
+                    type: string
+                    description: The description of the deleted task
+        '404':
+          description: Task not found
+
+  /task/count:
+    get:
+      summary: Get the total count of tasks
+      responses:
+        '200':
+          description: The total number of tasks
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 5  
+
+
