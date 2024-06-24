@@ -16,6 +16,7 @@ const Home = () => {
   }, []);
   return (
     <div>
+      <h1>List of Tasks</h1>
       {tasks.map((task) => (
         <li key={task.id}>
           <h2>{task.name}</h2>
