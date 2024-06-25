@@ -30,9 +30,10 @@
   }
   .link-icon-del{
     align-self: flex-start;
-    color: rgb(244, 134, 134);
+    color: rgba(244, 134, 134, 0.694);
   }  .link-icon-update{
     align-self: flex-end;
+    color: #646cffb3;
   }
 
   .icon-del:hover{
@@ -41,6 +42,8 @@
 button{
     margin:20px;
     color: #646cff;
+    background-color:transparent;
+  
 }
 button:hover{
     background-color: #646cff;
@@ -49,4 +52,7 @@ button:hover{
 .addingTask {
     display: flex;
     flex-direction: column;
+}
+h2{
+  color: rgba(0, 255, 255, 0.744);
 }
