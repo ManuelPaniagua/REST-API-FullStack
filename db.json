@@ -1,19 +1,22 @@
 {
+  "users": [
+    {
+      "id": "4947cf25-c6c4-4835-bfde-8b6f212add6d",
+      "email": "Ian@sdf.com",
+      "password": "bhbh",
+      "username": "Pepe Ldss"
+    },
+    {
+      "id": "541cc35c-90ed-424c-9000-4c18b911036b",
+      "email": "PEPEn@sdf.com",
+      "password": "bhbsdfasdfh",
+      "username": "Pepe Fernando"
+    }
+  ],
   "tasks": [
     {
-      "id": "2a0bff72-0d0d-4a52-a7d3-889108bae2a7",
-      "name": "New Task 2",
-      "description": "This is the 2 Task"
-    },
-    {
-      "id": "5361f131-7031-4748-9223-8316b085d3ce",
-      "name": "Third Task",
-      "description": "Adding the 3 Task"
-    },
-    {
-      "id": "32316601-3ca2-4de3-b953-255c16d098ee",
-      "name": "New Task",
-      "description": "Testing total of tasks"
+      "id": "a33cb4e4-2d65-4c5e-afd9-af5a378eab3f",
+      "name": "TASK 1"
     }
   ]
 }

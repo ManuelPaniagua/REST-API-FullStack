@@ -5,7 +5,7 @@ let db;
 export async function createConnection() {
   db = new LowSync(new JSONFileSync('db.json'), {});
   await db.read();
-  db.data ||= { tasks: [] };
+  db.data ||= { users: [], tasks: [] };
   await db.write();
 }
 

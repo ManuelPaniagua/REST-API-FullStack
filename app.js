@@ -3,6 +3,7 @@ import cors from 'cors';
 
 // import morgan from "morgan";
 import taskRoutes from './src/routes/tasks.js';
+import authRoutes from './src/routes/auth.route.js';
 import { createConnection } from './src/database.js';
 import swaggerUI from 'swagger-ui-express';
 import swaggerJsDoc from 'swagger-jsdoc';
@@ -33,6 +34,7 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 // Routes
 app.use(taskRoutes);
+app.use(authRoutes);
 
 // Initialize the database before starting the server
 createConnection().catch((err) =>
