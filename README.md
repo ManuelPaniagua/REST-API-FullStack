@@ -7,10 +7,10 @@ npm install
 
 # Usage
 
-To start the server in development mode (using nodemon to automatically restart the server after each change), run:
+To start the server in development mode (using nodemon to automatically restart the server after each change), run: <br>
 npm run dev
 
-To run tests, use the following command:
+To run tests, use the following command:<br>
 npm run test:rest
 
 
