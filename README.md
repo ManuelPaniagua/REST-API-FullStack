@@ -10,6 +10,9 @@ npm install
 To start the server in development mode (using nodemon to automatically restart the server after each change), run: <br>
 npm run dev
 
+To start the front-end go to the folder, run: <br>
+npm run dev
+
 To run tests, use the following command:<br>
 npm run test:rest
 
