@@ -25,6 +25,13 @@ const EditTask = () => {
   }, []);
 
   const handleEditTask = () => {
+    // Validate inputs
+    if (!name.trim() || !description.trim()) {
+      enqueueSnackbar('Please not empty values', {
+        variant: 'warning',
+      });
+      return;
+    }
     const data = {
       name,
       description,

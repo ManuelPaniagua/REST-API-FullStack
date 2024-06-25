@@ -10,6 +10,13 @@ const CreateTasks = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const handleSaveTask = () => {
+    // Validate inputs
+    if (!name.trim() || !description.trim()) {
+      enqueueSnackbar('Please enter both name and description', {
+        variant: 'warning',
+      });
+      return;
+    }
     const data = {
       name,
       description,

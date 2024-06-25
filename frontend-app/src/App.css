@@ -43,6 +43,7 @@ button{
     margin:20px;
     color: #646cff;
     background-color:transparent;
+    transition: all ease-in-out;
   
 }
 button:hover{
