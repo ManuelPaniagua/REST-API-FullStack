@@ -9,6 +9,11 @@
       "id": "5361f131-7031-4748-9223-8316b085d3ce",
       "name": "Third Task",
       "description": "Adding the 3 Task"
+    },
+    {
+      "id": "32316601-3ca2-4de3-b953-255c16d098ee",
+      "name": "New Task",
+      "description": "Testing total of tasks"
     }
   ]
 }

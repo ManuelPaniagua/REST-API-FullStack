@@ -5,6 +5,7 @@ import TasksCard from '../Home/TasksCard';
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
+  const totalOfTask = tasks.length;
 
   useEffect(() => {
     axios
@@ -23,6 +24,7 @@ const Home = () => {
         <button>Add new Task</button>
       </Link>
       <TasksCard tasks={tasks} />
+      <span>Total of tasks: {totalOfTask}</span>
     </div>
   );
 };
