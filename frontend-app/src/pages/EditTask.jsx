@@ -1,23 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
+import e from 'cors';
 
-const CreateTasks = () => {
+const EditTask = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const navigate = useNavigate();
+  const { id } = useParams();
   const { enqueueSnackbar } = useSnackbar();
 
-  const handleSaveTask = () => {
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/task/${id}`)
+      .then((response) => {
+        setName(response.data.name);
+        setDescription(response.data.description);
+      })
+      .catch((error) => {
+        alert('An error happened. Please check console');
+        console.log(error);
+      });
+  }, []);
+
+  const handleEditTask = () => {
     const data = {
       name,
       description,
     };
     axios
-      .post('http://localhost:3000/task', data)
+      .put(`http://localhost:3000/task/${id}`, data)
       .then(() => {
-        enqueueSnackbar('Task created successfully', { variant: 'success' });
+        enqueueSnackbar('Task edited successfully', { variant: 'success' });
         navigate('/');
       })
       .catch((error) => {
@@ -27,7 +42,7 @@ const CreateTasks = () => {
   };
   return (
     <div>
-      <h1>Create Task</h1>
+      <h1>Edit Task</h1>
       <div className='addingTask'>
         <label>Name of the Task</label>
         <input
@@ -44,8 +59,9 @@ const CreateTasks = () => {
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-      <button onClick={handleSaveTask}>Add Task</button>
+      <button onClick={handleEditTask}>Add Task</button>
     </div>
   );
 };
-export default CreateTasks;
+
+export default EditTask;
