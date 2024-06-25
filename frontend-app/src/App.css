@@ -5,6 +5,7 @@
   text-align: center;
   background-color: rgb(34, 17, 17);
   color: #fff;
+  box-sizing: border-box;
 }
 
 .singleCard{
@@ -29,10 +30,9 @@
     color: rgb(244, 134, 134) !important;
   }
 button{
-    margin:40px;
+    margin-bottom:40px;
 }
 button:hover{
-    margin: 5px;
     background-color: aqua;
 }
 .addingTask {

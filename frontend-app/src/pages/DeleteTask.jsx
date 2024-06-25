@@ -19,10 +19,14 @@ const DeleteTask = () => {
         console.log(error);
       });
   };
+  const handleNo = () => {
+    navigate('/');
+  };
   return (
     <div>
       <h1>Sure to delete?</h1>
       <button onClick={handleDeleteTask}>Yes</button>
+      <button onClick={handleNo}>No</button>
     </div>
   );
 };
