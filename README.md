@@ -1,5 +1,5 @@
 # Description
-This project is a RESTful API built with Node.js and Express.js, utilizing lowdb as a JSON database for data storage. It provides endpoints for CRUD (Create, Read, Update, Delete) operations on specific resources.
+This project is a full-stack application consisting of a RESTful API built with Node.js and Express.js, utilizing `lowdb` as a JSON database for data storage, and a frontend built with React for the user interface.
 
 # Installation
 To install the project dependencies, run the following command in your terminal: <br>
