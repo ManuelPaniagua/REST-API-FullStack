@@ -7,14 +7,29 @@
   color: #fff;
 }
 
-li{
+.singleCard{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     list-style: none;
     border: 1px solid aqua;
     border-radius: 5px;
     margin-bottom: 5px;
+    gap: 10%;
 }
+.iconContainer-del {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    left: 10px;
+    bottom: 10px;
+  }
+  .icon-del:hover{
+    color: rgb(244, 134, 134) !important;
+  }
 button{
-    margin:10px;
+    margin:40px;
 }
 button:hover{
     margin: 5px;
