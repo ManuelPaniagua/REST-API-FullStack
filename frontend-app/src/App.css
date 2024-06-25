@@ -6,6 +6,8 @@
   background-color: rgb(34, 17, 17);
   color: #fff;
   box-sizing: border-box;
+  border-radius: 5px;
+
 }
 
 .singleCard{
@@ -30,10 +32,11 @@
     color: rgb(244, 134, 134) !important;
   }
 button{
-    margin-bottom:40px;
+    margin:20px;
 }
 button:hover{
-    background-color: aqua;
+    background-color: #646cff;
+    color: #fff;
 }
 .addingTask {
     display: flex;

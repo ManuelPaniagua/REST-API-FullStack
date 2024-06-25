@@ -18,7 +18,7 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <h1>List of Tasks</h1>
+      <h1 style={{ marginBottom: '10px' }}>List of Tasks</h1>
       <Link to='/task/new'>
         <button>Add new Task</button>
       </Link>
