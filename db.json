@@ -23,6 +23,18 @@
       "email": "Test6@gmail.com",
       "password": "$2a$10$iPKHvv3pG1EuSuIRjSQExOltQFcU35zMjfuFD/L4.X23N/RccXRGu",
       "username": "Test 6"
+    },
+    {
+      "id": "d7c423b9-580e-4724-aa69-27aac3cc02de",
+      "email": "Test7@gmail.com",
+      "password": "$2a$10$d81uLL4pjgIagIfUUo3cNeabUJcYH08Y8ojrpbugnYpoWzhVdiiqW",
+      "username": "Test 7"
+    },
+    {
+      "id": "74652ac3-6136-4eaf-a3b3-fbee8fb7c3fb",
+      "email": "Test7@gmail.com",
+      "password": "$2a$10$5Fouk/6IuXBHshWfB7Xc/u5q6zOeH9S7xtnKRd5ipGhbxNSMpuYDu",
+      "username": "Test 7"
     }
   ],
   "tasks": [

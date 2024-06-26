@@ -28,7 +28,10 @@ export const registerUser = async (req, res) => {
       },
       (err, token) => {
         if (err) console.log(err);
-        res.json({ token });
+        res.cookie('token', token);
+        res.json({
+          message: 'User created succesfully',
+        });
       },
     );
 
