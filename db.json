@@ -11,6 +11,12 @@
       "email": "PEPEn@sdf.com",
       "password": "bhbsdfasdfh",
       "username": "Pepe Fernando"
+    },
+    {
+      "id": "674f73b0-e3be-48ec-98aa-07e5f61d0bd3",
+      "email": "Test5@gmail.com",
+      "password": "$2a$10$DzA7Vy3lBCCj5bwINIQgIuwgvLik7QHq8Y8J70Gw6ymAahwb/tXay",
+      "username": "Test 5"
     }
   ],
   "tasks": [
