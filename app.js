@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-
+import cookieParser from 'cookie-parser';
 // import morgan from "morgan";
 import taskRoutes from './src/routes/tasks.js';
 import authRoutes from './src/routes/auth.route.js';
@@ -27,6 +27,7 @@ const swaggerDocument = YAML.load(swaggerYAMLPath);
 // middlewares
 app.use(cors()); //needed for http request
 app.use(express.json()); //save the data in the req.body
+app.use(cookieParser());
 // app.use(morgan("dev"));
 
 // Serve Swagger documentation using Swagger UI
