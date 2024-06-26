@@ -17,6 +17,12 @@
       "email": "Test5@gmail.com",
       "password": "$2a$10$DzA7Vy3lBCCj5bwINIQgIuwgvLik7QHq8Y8J70Gw6ymAahwb/tXay",
       "username": "Test 5"
+    },
+    {
+      "id": "e00be8df-1d97-4272-95ce-28a4b4d94ecf",
+      "email": "Test6@gmail.com",
+      "password": "$2a$10$iPKHvv3pG1EuSuIRjSQExOltQFcU35zMjfuFD/L4.X23N/RccXRGu",
+      "username": "Test 6"
     }
   ],
   "tasks": [

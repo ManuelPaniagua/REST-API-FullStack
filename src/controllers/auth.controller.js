@@ -1,6 +1,7 @@
 import { getConnection } from '../database.js';
 import { v4 } from 'uuid';
 import bcryptjs from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 export const registerUser = async (req, res) => {
   const { email, password, username } = req.body;
@@ -16,9 +17,24 @@ export const registerUser = async (req, res) => {
     const db = getConnection();
     db.data.users.push(newUser);
     await db.write();
-    console.log(newUser);
 
-    res.json(newUser);
+    jwt.sign(
+      {
+        id: newUser.id,
+      },
+      'secret 123',
+      {
+        expiresIn: '1d',
+      },
+      (err, token) => {
+        if (err) console.log(err);
+        res.json({ token });
+      },
+    );
+
+    // console.log(newUser);
+
+    // res.json(newUser);
   } catch (error) {
     return res.status(500).send(error);
   }
