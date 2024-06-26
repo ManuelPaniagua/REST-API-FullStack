@@ -40,6 +40,43 @@ export const registerUser = async (req, res) => {
 };
 
 //Login
-export const login = (req, res) => {
-  res.send('login');
+export const login = async (req, res) => {
+  const { email, password, username } = req.body;
+
+  try {
+    const db = getConnection();
+
+    //Find user by email
+    const userFound = await db.data.users.find((user) => user.email === email);
+
+    if (!userFound) {
+      return res.status(400).json({ message: ' Invalid Email or Password' });
+    }
+    //compare passwords
+    const isMatch = await bcryptjs.compare(password, userFound.password);
+
+    if (!isMatch) {
+      return res.status(400).json({ message: ' Invalid Email or Password' });
+    }
+
+    //create acces token
+    const token = await createAccessToken({ id: userFound.id });
+
+    //save token in a cookie
+    res.cookie('token', token, { httpOnly: true });
+
+    //we don't need sent password to the backend
+    res.json({
+      id: userFound.id,
+      email: userFound.email,
+      username: userFound.username,
+    });
+  } catch (error) {
+    return res.status(500).send(error);
+  }
+};
+
+//Logout
+export const logout = (req, res) => {
+  res.send('logout');
 };

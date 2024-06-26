@@ -41,6 +41,18 @@
       "email": "Test8@gmail.com",
       "password": "$2a$10$Xn5be4BVq6y6oAi4iR2qsO.ut4fuHWOnV9Gm1OziyGjDeYLiB/fEO",
       "username": "Test 8"
+    },
+    {
+      "id": "4dc8a0ee-f507-43bf-ba72-1fb1d21e2650",
+      "email": "Test9@gmail.com",
+      "password": "$2a$10$y3Tt08zZvGo.uvxbpz9Ibe9jEUbUFf24xVqobIJqMXINivVPcF7Eq",
+      "username": "Test 9"
+    },
+    {
+      "id": "11b8a3a9-149b-4c33-ae0c-96c62b728bec",
+      "email": "Test13@gmail.com",
+      "password": "$2a$10$vHShokv0hoeT0.xR9zX3lOtJcnFXPK044EtHoOGxtzyOWkwMKjxqu",
+      "username": "Test 13"
     }
   ],
   "tasks": [
