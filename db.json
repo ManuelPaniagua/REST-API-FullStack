@@ -1,19 +1,64 @@
 {
+  "users": [
+    {
+      "id": "4947cf25-c6c4-4835-bfde-8b6f212add6d",
+      "email": "Ian@sdf.com",
+      "password": "bhbh",
+      "username": "Pepe Ldss"
+    },
+    {
+      "id": "541cc35c-90ed-424c-9000-4c18b911036b",
+      "email": "PEPEn@sdf.com",
+      "password": "bhbsdfasdfh",
+      "username": "Pepe Fernando"
+    },
+    {
+      "id": "674f73b0-e3be-48ec-98aa-07e5f61d0bd3",
+      "email": "Test5@gmail.com",
+      "password": "$2a$10$DzA7Vy3lBCCj5bwINIQgIuwgvLik7QHq8Y8J70Gw6ymAahwb/tXay",
+      "username": "Test 5"
+    },
+    {
+      "id": "e00be8df-1d97-4272-95ce-28a4b4d94ecf",
+      "email": "Test6@gmail.com",
+      "password": "$2a$10$iPKHvv3pG1EuSuIRjSQExOltQFcU35zMjfuFD/L4.X23N/RccXRGu",
+      "username": "Test 6"
+    },
+    {
+      "id": "d7c423b9-580e-4724-aa69-27aac3cc02de",
+      "email": "Test7@gmail.com",
+      "password": "$2a$10$d81uLL4pjgIagIfUUo3cNeabUJcYH08Y8ojrpbugnYpoWzhVdiiqW",
+      "username": "Test 7"
+    },
+    {
+      "id": "74652ac3-6136-4eaf-a3b3-fbee8fb7c3fb",
+      "email": "Test7@gmail.com",
+      "password": "$2a$10$5Fouk/6IuXBHshWfB7Xc/u5q6zOeH9S7xtnKRd5ipGhbxNSMpuYDu",
+      "username": "Test 7"
+    },
+    {
+      "id": "30fa55e7-7ca4-4452-b488-7e0fa499c167",
+      "email": "Test8@gmail.com",
+      "password": "$2a$10$Xn5be4BVq6y6oAi4iR2qsO.ut4fuHWOnV9Gm1OziyGjDeYLiB/fEO",
+      "username": "Test 8"
+    },
+    {
+      "id": "4dc8a0ee-f507-43bf-ba72-1fb1d21e2650",
+      "email": "Test9@gmail.com",
+      "password": "$2a$10$y3Tt08zZvGo.uvxbpz9Ibe9jEUbUFf24xVqobIJqMXINivVPcF7Eq",
+      "username": "Test 9"
+    },
+    {
+      "id": "11b8a3a9-149b-4c33-ae0c-96c62b728bec",
+      "email": "Test13@gmail.com",
+      "password": "$2a$10$vHShokv0hoeT0.xR9zX3lOtJcnFXPK044EtHoOGxtzyOWkwMKjxqu",
+      "username": "Test 13"
+    }
+  ],
   "tasks": [
     {
-      "id": "2a0bff72-0d0d-4a52-a7d3-889108bae2a7",
-      "name": "New Task 2",
-      "description": "This is the 2 Task"
-    },
-    {
-      "id": "5361f131-7031-4748-9223-8316b085d3ce",
-      "name": "Third Task",
-      "description": "Adding the 3 Task"
-    },
-    {
-      "id": "32316601-3ca2-4de3-b953-255c16d098ee",
-      "name": "New Task",
-      "description": "Testing total of tasks"
+      "id": "a33cb4e4-2d65-4c5e-afd9-af5a378eab3f",
+      "name": "TASK 1"
     }
   ]
 }
