@@ -1,7 +1,7 @@
 import { getConnection } from '../database.js';
 import { v4 } from 'uuid';
 import bcryptjs from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import { createAccessToken } from '../libs/jwt.js';
 
 export const registerUser = async (req, res) => {
   const { email, password, username } = req.body;
@@ -18,22 +18,18 @@ export const registerUser = async (req, res) => {
     db.data.users.push(newUser);
     await db.write();
 
-    jwt.sign(
-      {
-        id: newUser.id,
-      },
-      'secret 123',
-      {
-        expiresIn: '1d',
-      },
-      (err, token) => {
-        if (err) console.log(err);
-        res.cookie('token', token);
-        res.json({
-          message: 'User created succesfully',
-        });
-      },
-    );
+    //create acces token
+    const token = await createAccessToken({ id: newUser.id });
+
+    //save token in a cookie
+    res.cookie('token', token);
+
+    //we don't need sent password to the backend
+    res.json({
+      id: newUser.id,
+      email: newUser.email,
+      username: newUser.username,
+    });
 
     // console.log(newUser);
 
