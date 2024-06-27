@@ -4,4 +4,4 @@ dist
 
 .prettierrc
 
-.db.json
+db.json
