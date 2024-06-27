@@ -53,6 +53,12 @@
       "email": "Test13@gmail.com",
       "password": "$2a$10$vHShokv0hoeT0.xR9zX3lOtJcnFXPK044EtHoOGxtzyOWkwMKjxqu",
       "username": "Test 13"
+    },
+    {
+      "id": "62abf58c-2ad8-47c1-8e08-0fb509da2d54",
+      "email": "Test14@gmail.com",
+      "password": "$2a$10$L16sfrv31lgKfsCH1tENhO7QCdiVT6/59ei8mIV9cfBQYfmQkp9LS",
+      "username": "Pepito"
     }
   ],
   "tasks": [
