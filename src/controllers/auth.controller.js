@@ -1,6 +1,6 @@
+import bcryptjs from 'bcryptjs';
 import { getConnection } from '../database.js';
 import { v4 } from 'uuid';
-import bcryptjs from 'bcryptjs';
 import { createAccessToken } from '../libs/jwt.js';
 
 export const registerUser = async (req, res) => {
