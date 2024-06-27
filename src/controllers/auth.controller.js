@@ -1,10 +1,10 @@
 import bcryptjs from 'bcryptjs';
-import { getConnection } from '../database.js';
 import { v4 } from 'uuid';
+import { getConnection } from '../database.js';
 import { createAccessToken } from '../libs/jwt.js';
 
 export const registerUser = async (req, res) => {
-    const { email, password, username } = req.body;
+    const { password } = req.body;
 
     try {
         const passwordHash = await bcryptjs.hash(password, 10);
@@ -18,13 +18,13 @@ export const registerUser = async (req, res) => {
         db.data.users.push(newUser);
         await db.write();
 
-        //create acces token
+        // create acces token
         const token = await createAccessToken({ id: newUser.id });
 
-        //save token in a cookie
+        // save token in a cookie
         res.cookie('token', token);
 
-        //we don't need sent password to the backend
+        // we don't need sent password to the backend
         res.json({
             id: newUser.id,
             email: newUser.email,
@@ -39,14 +39,14 @@ export const registerUser = async (req, res) => {
     }
 };
 
-//Login
+// Login
 export const login = async (req, res) => {
-    const { email, password, username } = req.body;
+    const { email, password } = req.body;
 
     try {
         const db = getConnection();
 
-        //Find user by email
+        // Find user by email
         const userFound = await db.data.users.find(
             (user) => user.email === email,
         );
@@ -56,7 +56,7 @@ export const login = async (req, res) => {
                 .status(400)
                 .json({ message: ' Invalid Email or Password' });
         }
-        //compare passwords
+        // compare passwords
         const isMatch = await bcryptjs.compare(password, userFound.password);
 
         if (!isMatch) {
@@ -65,13 +65,13 @@ export const login = async (req, res) => {
                 .json({ message: ' Invalid Email or Password' });
         }
 
-        //create acces token
+        // create acces token
         const token = await createAccessToken({ id: userFound.id });
 
-        //save token in a cookie
+        // save token in a cookie
         res.cookie('token', token, { httpOnly: true });
 
-        //we don't need sent password to the backend
+        // we don't need sent password to the backend
         res.json({
             id: userFound.id,
             email: userFound.email,
@@ -82,14 +82,14 @@ export const login = async (req, res) => {
     }
 };
 
-//Logout
+// Logout
 export const logout = (req, res) => {
     //reset token
     res.clearCookie('token');
     return res.status(200).json({ message: 'Logout succesful' });
 };
 
-//profile
+// profile
 export const profile = async (req, res) => {
     try {
         const db = getConnection();
