@@ -1,12 +1,13 @@
 import { Router } from 'express';
 import {
-  count,
-  createTask,
-  deleteTask,
-  getTask,
-  getTasks,
-  updateTask,
+    count,
+    createTask,
+    deleteTask,
+    getTask,
+    getTasks,
+    updateTask,
 } from '../controllers/tasks.controller.js';
+
 const router = Router();
 
 router.get('/task', getTasks);
