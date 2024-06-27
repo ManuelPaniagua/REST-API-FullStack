@@ -1,11 +1,12 @@
 import { Router } from 'express';
 import {
-  registerUser,
-  login,
-  logout,
-  profile,
+    registerUser,
+    login,
+    logout,
+    profile,
 } from '../controllers/auth.controller.js';
 import { authRequired } from '../middlewares/validateToken.js';
+
 const router = Router();
 
 router.post('/register', registerUser);
