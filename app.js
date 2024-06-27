@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import expressWinston from 'express-winston';
+import logger from './src/middlewares/logger.js';
 // import morgan from "morgan";
 import taskRoutes from './src/routes/tasks.js';
 import authRoutes from './src/routes/auth.route.js';
@@ -10,6 +12,7 @@ import swaggerJsDoc from 'swagger-jsdoc';
 import YAML from 'yamljs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import winston from 'winston';
 
 const app = express();
 
@@ -30,6 +33,23 @@ app.use(express.json()); //save the data in the req.body
 app.use(cookieParser());
 // app.use(morgan("dev"));
 
+app.use(
+    expressWinston.logger({
+        transports: logger.transports,
+        format: winston.format.combine(
+            winston.format.timestamp(),
+            winston.format.simple(),
+        ),
+        meta: false,
+        msg: 'HTTP {{req.method}} {{req.url}}',
+        expressFormat: true,
+        colorize: false,
+        ignoreRoute: function (req, res) {
+            return false;
+        },
+    }),
+);
+
 // Serve Swagger documentation using Swagger UI
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
@@ -39,7 +59,7 @@ app.use(authRoutes);
 
 // Initialize the database before starting the server
 createConnection().catch((err) =>
-  console.error('Failed to initialize database:', err),
+    console.error('Failed to initialize database:', err),
 );
 
 export { app };
