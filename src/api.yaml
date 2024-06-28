@@ -11,9 +11,141 @@ servers:
   - url: http://localhost:3000
     description: Development server
 
+tags:
+  - name: Authorization
+    description: Endpoints related to user authorization (register, login, logout, profile)
+  - name: Task Management
+    description: Endpoints related to managing tasks
+
 paths:
+  /register:
+    post:
+      tags:
+        - Authorization
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: The username of the new user
+                email:
+                  type: string
+                  description: The email of the new user
+                password:
+                  type: string
+                  description: The password of the new user
+              required:
+                - username
+                - email
+                - password
+      responses:
+        '200':
+          description: The registered user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The unique identifier of the user
+                  email:
+                    type: string
+                    description: The email of the user
+                  username:
+                    type: string
+                    description: The username of the user
+
+  /login:
+    post:
+      tags:
+        - Authorization
+      summary: Login a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: The email of the user
+                password:
+                  type: string
+                  description: The password of the user
+              required:
+                - email
+                - password
+      responses:
+        '200':
+          description: The logged-in user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The unique identifier of the user
+                  email:
+                    type: string
+                    description: The email of the user
+                  username:
+                    type: string
+                    description: The username of the user
+
+  /logout:
+    post:
+      tags:
+        - Authorization
+      summary: Logout a user
+      responses:
+        '200':
+          description: User logged out successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: The logout message
+
+  /profile:
+    get:
+      tags:
+        - Authorization
+      summary: Get the profile of the logged-in user
+      responses:
+        '200':
+          description: The profile of the user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The unique identifier of the user
+                  email:
+                    type: string
+                    description: The email of the user
+                  username:
+                    type: string
+                    description: The username of the user
+        '400':
+          description: User not found
+
   /task:
     get:
+      tags:
+        - Task Management
       summary: Get all tasks
       responses:
         '200':
@@ -36,6 +168,8 @@ paths:
                       description: The description of the task
 
     post:
+      tags:
+        - Task Management
       summary: Create a new task
       requestBody:
         required: true
@@ -73,6 +207,8 @@ paths:
 
   /task/{id}:
     get:
+      tags:
+        - Task Management
       summary: Get a task by ID
       parameters:
         - name: id
@@ -102,6 +238,8 @@ paths:
           description: Task not found
 
     put:
+      tags:
+        - Task Management
       summary: Update a task by ID
       parameters:
         - name: id
@@ -147,6 +285,8 @@ paths:
           description: Task not found
 
     delete:
+      tags:
+        - Task Management
       summary: Delete a task by ID
       parameters:
         - name: id
@@ -177,6 +317,8 @@ paths:
 
   /task/count:
     get:
+      tags:
+        - Task Management
       summary: Get the total count of tasks
       responses:
         '200':
@@ -186,5 +328,3 @@ paths:
               schema:
                 type: integer
                 example: 5  
-
-
