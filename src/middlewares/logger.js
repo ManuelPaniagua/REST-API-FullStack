@@ -1,6 +1,7 @@
 // src/middlewares/logger.js
 import winston from 'winston';
-
+import morgan from 'morgan';
+import { format } from 'logform';
 // Define log levels
 const levels = {
     error: 0,
@@ -11,6 +12,25 @@ const levels = {
     debug: 5,
     silly: 6,
 };
+const colors = {
+    error: 'red',
+    warn: 'yellow',
+    info: 'green',
+    http: 'blue',
+    verbose: 'cyan',
+    debug: 'magenta',
+    silly: 'gray',
+};
+
+winston.addColors(colors);
+
+// Define custom CLI format with colors
+const cliFormat = format.combine(
+    format.colorize(),
+    format.printf(({ level, message, timestamp }) => {
+        return `${timestamp} ${level}: ${message}`;
+    }),
+);
 
 // Define log format
 const logFormat = winston.format.combine(
@@ -20,10 +40,22 @@ const logFormat = winston.format.combine(
     winston.format.json(),
 );
 
+// Define custom format for console
+// const consoleFormat = winston.format.combine(
+//     winston.format.colorize(),
+//     winston.format.printf(({ level, message, timestamp }) => {
+//         // Custom color for HTTP logs
+//         if (level === 'http') {
+//             return `\x1b[34m${timestamp} ${level}: ${message}\x1b[0m`; // Blue color
+//         }
+//         return `${timestamp} ${level}: ${message}`;
+//     }),
+// );
+
 // Define transports (console and/or file)
 const transports = [
     new winston.transports.Console({
-        format: winston.format.combine(winston.format.colorize(), logFormat),
+        format: cliFormat,
     }),
     new winston.transports.File({ filename: 'error.log', level: 'error' }),
     new winston.transports.File({ filename: 'combined.log' }),
@@ -31,11 +63,21 @@ const transports = [
 
 // Create Winston logger instance
 const logger = winston.createLogger({
-    level: 'info', // Default level
+    level: process.env.LOG_LEVEL || 'info', // Default level
     levels,
     format: logFormat,
     transports,
     exitOnError: false, // Do not exit on handled exceptions
 });
+
+export const httpLogger = morgan(
+    ':method :url :status :res[content-length] - :response-time ms',
+    {
+        stream: {
+            // Configure Morgan to use our custom logger with the http severity
+            write: (message) => logger.http(message.trim()),
+        },
+    },
+);
 
 export default logger;

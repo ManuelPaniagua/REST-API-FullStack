@@ -59,6 +59,12 @@
       "email": "Test14@gmail.com",
       "password": "$2a$10$L16sfrv31lgKfsCH1tENhO7QCdiVT6/59ei8mIV9cfBQYfmQkp9LS",
       "username": "Pepito"
+    },
+    {
+      "id": "e161dc84-bc41-463b-ba72-27989768e809",
+      "email": "1email@email.com",
+      "password": "$2a$10$Vr/BXCE0FdSyKLoCHfxDeunnZ55PULpQ9XOP7HWkb6W25lEHBKDt2",
+      "username": "TEST LOGGER"
     }
   ],
   "tasks": [
@@ -71,6 +77,14 @@
       "id": "af01d350-8384-4037-8695-d982681a2dce",
       "name": "Testing Taks post",
       "description": "yes or not"
+    },
+    {
+      "id": "d4943d9c-a34e-4999-8eaa-61674fea7d6f",
+      "name": "New post TEST",
+      "description": "To  TEST LOGGER"
+    },
+    {
+      "id": "009d1aeb-ccf5-4005-bbb6-ecb638e46355"
     }
   ]
 }

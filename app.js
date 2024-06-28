@@ -3,7 +3,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import expressWinston from 'express-winston';
 import logger from './src/middlewares/logger.js';
-// import morgan from "morgan";
+import morgan from 'morgan';
 import taskRoutes from './src/routes/tasks.js';
 import authRoutes from './src/routes/auth.route.js';
 import { createConnection } from './src/database.js';
@@ -13,6 +13,7 @@ import YAML from 'yamljs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import winston from 'winston';
+import { httpLogger } from './src/middlewares/logger.js';
 
 const app = express();
 
@@ -31,7 +32,7 @@ const swaggerDocument = YAML.load(swaggerYAMLPath);
 app.use(cors()); //needed for http request
 app.use(express.json()); //save the data in the req.body
 app.use(cookieParser());
-// app.use(morgan("dev"));
+app.use(httpLogger);
 
 app.use(
     expressWinston.logger({
@@ -43,7 +44,7 @@ app.use(
         meta: false,
         msg: 'HTTP {{req.method}} {{req.url}}',
         expressFormat: true,
-        colorize: false,
+        colorize: true,
         ignoreRoute: function (req, res) {
             return false;
         },
