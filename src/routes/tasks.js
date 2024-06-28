@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import {
-    count,
+    countTasks,
     createTask,
     deleteTask,
     getTask,
@@ -11,7 +11,7 @@ import {
 const router = Router();
 
 router.get('/task', getTasks);
-router.get('/task/count', count);
+router.get('/task/count', countTasks);
 router.get('/task/:id', getTask);
 router.post('/task', createTask);
 router.put('/task/:id', updateTask);

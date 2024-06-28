@@ -94,7 +94,7 @@ export const deleteTask = async (req, res) => {
     }
 };
 
-export const count = (req, res) => {
+export const countTasks = (req, res) => {
     const totalTasks = getConnection().data.tasks.length;
     res.json(totalTasks);
 };
