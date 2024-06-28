@@ -59,18 +59,28 @@
       "email": "Test14@gmail.com",
       "password": "$2a$10$L16sfrv31lgKfsCH1tENhO7QCdiVT6/59ei8mIV9cfBQYfmQkp9LS",
       "username": "Pepito"
+    },
+    {
+      "id": "e161dc84-bc41-463b-ba72-27989768e809",
+      "email": "1email@email.com",
+      "password": "$2a$10$Vr/BXCE0FdSyKLoCHfxDeunnZ55PULpQ9XOP7HWkb6W25lEHBKDt2",
+      "username": "TEST LOGGER"
+    },
+    {
+      "id": "a5d25f56-9b5c-496b-8813-ff6850a84b7d",
+      "email": "email@email.com",
+      "password": "$2a$10$Ox1yPeVuIDYKQxhafh3.VuxU3i.5RYcchb7JoArkonZTIJdYwbJCa",
+      "username": "TEST LOGGER 2"
     }
   ],
   "tasks": [
     {
-      "id": "a33cb4e4-2d65-4c5e-afd9-af5a378eab3f",
-      "name": "Editing TASK",
-      "description": "yes or not"
+      "id": "d4943d9c-a34e-4999-8eaa-61674fea7d6f",
+      "name": "New post TEST",
+      "description": "To  TEST LOGGER"
     },
     {
-      "id": "af01d350-8384-4037-8695-d982681a2dce",
-      "name": "Testing Taks post",
-      "description": "yes or not"
+      "id": "009d1aeb-ccf5-4005-bbb6-ecb638e46355"
     }
   ]
 }
