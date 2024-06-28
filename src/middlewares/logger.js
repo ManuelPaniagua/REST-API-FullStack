@@ -2,6 +2,9 @@
 import winston from 'winston';
 import morgan from 'morgan';
 import { format } from 'logform';
+
+// TODO: MAX MB and Files
+
 // Define log levels
 const levels = {
     error: 0,
@@ -45,8 +48,11 @@ const transports = [
     new winston.transports.Console({
         format: cliFormat,
     }),
-    new winston.transports.File({ filename: 'error.log', level: 'error' }),
-    new winston.transports.File({ filename: 'combined.log' }),
+    new winston.transports.File({
+        filename: './log/error.log',
+        level: 'error',
+    }),
+    new winston.transports.File({ filename: './log/combined.log' }),
 ];
 
 // Create Winston logger instance
