@@ -34,8 +34,6 @@ module.exports = {
             'error',
             { blankLine: 'always', prev: '*', next: 'function' },
             { blankLine: 'always', prev: 'function', next: '*' },
-            { blankLine: 'always', prev: 'block-like', next: '*' },
-            { blankLine: 'always', prev: '*', next: 'return' },
         ],
 
         'consistent-return': 'off', // Disable consistent-return rule for async functions that may not always return a value
