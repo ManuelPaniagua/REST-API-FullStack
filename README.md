@@ -16,6 +16,8 @@ npm run dev
 To run tests, use the following command:<br>
 npm run test:rest
 
+# Database
+You have a db.example.json
 
 # API Documentation
 The API documentation is automatically generated using Swagger. You can access it at http://localhost:port/api-docs once the server is running.

@@ -2,18 +2,17 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import expressWinston from 'express-winston';
-import logger from './src/middlewares/logger.js';
+import logger from './middlewares/logger.js';
 import morgan from 'morgan';
-import taskRoutes from './src/routes/tasks.js';
-import authRoutes from './src/routes/auth.route.js';
-import { createConnection } from './src/database.js';
+import taskRoutes from './routes/tasks.js';
+import authRoutes from './routes/auth.route.js';
+import { createConnection } from './database.js';
 import swaggerUI from 'swagger-ui-express';
-import swaggerJsDoc from 'swagger-jsdoc';
 import YAML from 'yamljs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import winston from 'winston';
-import { httpLogger } from './src/middlewares/logger.js';
+import { httpLogger } from './middlewares/logger.js';
 
 const app = express();
 
@@ -22,7 +21,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Load Swagger YAML file
-const swaggerYAMLPath = join(__dirname, 'src/api.yaml');
+const swaggerYAMLPath = join(__dirname, './api.yaml');
 const swaggerDocument = YAML.load(swaggerYAMLPath);
 
 // settings
