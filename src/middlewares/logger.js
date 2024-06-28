@@ -27,9 +27,9 @@ winston.addColors(colors);
 // Define custom CLI format with colors
 const cliFormat = format.combine(
     format.colorize(),
-    format.printf(({ level, message, timestamp }) => {
-        return `${timestamp} ${level}: ${message}`;
-    }),
+    format.printf(
+        ({ level, message, timestamp }) => `${timestamp} ${level}: ${message}`,
+    ),
 );
 
 // Define log format
@@ -39,18 +39,6 @@ const logFormat = winston.format.combine(
     winston.format.splat(),
     winston.format.json(),
 );
-
-// Define custom format for console
-// const consoleFormat = winston.format.combine(
-//     winston.format.colorize(),
-//     winston.format.printf(({ level, message, timestamp }) => {
-//         // Custom color for HTTP logs
-//         if (level === 'http') {
-//             return `\x1b[34m${timestamp} ${level}: ${message}\x1b[0m`; // Blue color
-//         }
-//         return `${timestamp} ${level}: ${message}`;
-//     }),
-// );
 
 // Define transports (console and/or file)
 const transports = [

@@ -92,18 +92,6 @@ export const deleteTask = async (req, res) => {
         logger.error('PUT /delete task failed', error);
         return res.status(500).send(error);
     }
-    const db = getConnection();
-    const taskFound = getConnection().data.tasks.find(
-        (task) => task.id === req.params.id,
-    );
-    if (!taskFound) {
-        return res.sendStatus(404);
-    }
-    const newTasks = db.data.tasks.filter((t) => t.id !== req.params.id);
-    db.data.tasks = newTasks;
-
-    await db.write();
-    res.json(taskFound);
 };
 
 export const count = (req, res) => {

@@ -17,3 +17,26 @@ info: [90mPOST /register[39m [32m200[39m [90m138ms[39m {"meta":{},"timesta
 info: [90mPOST /login[39m [32m200[39m [90m217ms[39m {"meta":{},"timestamp":"2024-06-28T09:23:07.153Z"}
 info: [90mGET /task[39m [32m200[39m [90m2ms[39m {"meta":{},"timestamp":"2024-06-28T09:38:22.690Z"}
 {"level":"info","message":"GET /task successful","timestamp":"2024-06-28 11:38:22"}
+info: [90mGET /register[39m [33m404[39m [90m3ms[39m {"meta":{},"timestamp":"2024-06-28T10:36:17.807Z"}
+info: [90mGET /register[39m [33m404[39m [90m2ms[39m {"meta":{},"timestamp":"2024-06-28T10:40:31.474Z"}
+{"level":"info","message":"User registered successfully: email@email.com","timestamp":"2024-06-28 12:41:46"}
+info: [90mPOST /register[39m [32m200[39m [90m152ms[39m {"meta":{},"timestamp":"2024-06-28T10:41:46.009Z"}
+{"level":"info","message":"User logged in successfully: email@email.com","timestamp":"2024-06-28 12:52:49"}
+info: [90mPOST /login[39m [32m200[39m [90m137ms[39m {"meta":{},"timestamp":"2024-06-28T10:52:49.024Z"}
+info: [90mGET /task[39m [32m200[39m [90m0ms[39m {"meta":{},"timestamp":"2024-06-28T10:53:09.003Z"}
+{"level":"info","message":"GET /task successful","timestamp":"2024-06-28 12:53:09"}
+info: [90mGET /task/a33cb4e4-2d65-4c5e-afd9-af5a378eab3f[39m [32m200[39m [90m1ms[39m {"meta":{},"timestamp":"2024-06-28T10:53:31.120Z"}
+{"level":"info","message":"GET /task by Id successful","timestamp":"2024-06-28 12:53:31"}
+info: [90mPUT /task/a33cb4e4-2d65-4c5e-afd9-af5a378eab3f[39m [32m200[39m [90m1ms[39m {"meta":{},"timestamp":"2024-06-28T10:54:06.527Z"}
+{"level":"info","message":"PUT /task update successfull","timestamp":"2024-06-28 12:54:06"}
+info: [90mDELETE /task/a33cb4e4-2d65-4c5e-afd9-af5a378eab3f[39m [32m200[39m [90m1ms[39m {"meta":{},"timestamp":"2024-06-28T10:54:20.929Z"}
+info: [90mDELETE /task/a33cb4e4-2d65-4c5e-afd9-af5a378eab3f[39m [33m404[39m [90m3ms[39m {"meta":{},"timestamp":"2024-06-28T10:55:53.083Z"}
+info: [90mGET /task/[39m [32m200[39m [90m1ms[39m {"meta":{},"timestamp":"2024-06-28T10:56:10.495Z"}
+{"level":"info","message":"GET /task successful","timestamp":"2024-06-28 12:56:10"}
+info: [90mDELETE /task/af01d350-8384-4037-8695-d982681a2dce[39m [32m200[39m [90m1ms[39m {"meta":{},"timestamp":"2024-06-28T10:56:33.615Z"}
+{"level":"info","message":"DEL /delete task successfull","timestamp":"2024-06-28 12:56:33"}
+info: [90mGET /task/af01d350-8384-4037-8695-d982681a2dce[39m [33m404[39m [90m0ms[39m {"meta":{},"timestamp":"2024-06-28T10:57:06.029Z"}
+info: [90mGET /task/[39m [32m200[39m [90m1ms[39m {"meta":{},"timestamp":"2024-06-28T10:57:17.531Z"}
+{"level":"info","message":"GET /task successful","timestamp":"2024-06-28 12:57:17"}
+info: [90mGET /task/d4943d9c-a34e-4999-8eaa-61674fea7d6f[39m [32m200[39m [90m0ms[39m {"meta":{},"timestamp":"2024-06-28T10:57:25.769Z"}
+{"level":"info","message":"GET /task by Id successful","timestamp":"2024-06-28 12:57:25"}
