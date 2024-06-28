@@ -5,9 +5,8 @@ import { createAccessToken } from '../libs/jwt.js';
 import logger from '../middlewares/logger.js';
 
 export const registerUser = async (req, res) => {
-    const { username, password, email } = req.body;
-
     try {
+        const { username, password, email } = req.body;
         const passwordHash = await bcryptjs.hash(password, 10);
         const newUser = {
             id: v4(),
@@ -44,8 +43,8 @@ export const registerUser = async (req, res) => {
 // Login
 export const login = async (req, res) => {
     try {
-        const { email, password } = req.body;
         const db = getConnection();
+        const { email, password } = req.body;
 
         // Find user by email
         const userFound = await db.data.users.find(
@@ -53,7 +52,7 @@ export const login = async (req, res) => {
         );
 
         if (!userFound) {
-            logger.info(`Password does not match for user with email ${email}`);
+            logger.info(`Email not found ${email}`);
             return res
                 .status(400)
                 .json({ message: ' Invalid Email or Password' });
@@ -62,7 +61,9 @@ export const login = async (req, res) => {
         const isMatch = await bcryptjs.compare(password, userFound.password);
 
         if (!isMatch) {
-            logger.info(`Password does not match for user with email ${email}`);
+            logger.info(
+                `Password does not match for user with email: ${email}`,
+            );
             return res
                 .status(400)
                 .json({ message: 'Invalid Email or Password' });

@@ -113,6 +113,35 @@
       "email": "email@email.com",
       "password": "$2a$10$9fKBJuzz3gDaShaajH9ZEuRAbxa6hh5aBBT0ZFdEo1CcQ4xkyqmCy",
       "username": "TEST LOGGER 8"
+    },
+    {
+      "id": "fe12b5a5-c8ce-4961-a4f2-c9909ef5dc4b",
+      "email": "email@email.com",
+      "password": "$2a$10$GsF0KdXNWzDwh7R7IUmcZ.IalHJZ0EZIBeah6dAOM73yqHT.E/4.e",
+      "username": "TEST LOGGER 9"
+    },
+    {
+      "id": "763512f1-30c0-4a0a-8ed8-79de7c9c9246",
+      "email": "email@email.com",
+      "password": "$2a$10$.dC3fTCMtf.TfXfd1OYtu.zMnSM9RaAJ35F5x6Ztn5a2qGVQPcDoi"
+    },
+    {
+      "id": "da8e7c0c-60ab-421e-9d39-9d7c477016aa",
+      "email": "new@email.com",
+      "password": "$2a$10$J/vhUxkcK6tDoWCGiaD9kOpOZacCtxs6nTVGkXTtDwVpwWRFGXAHi",
+      "username": "TEST LOGGER 10"
+    },
+    {
+      "id": "6a457d92-b965-4ebd-9bcd-aa8ac5a4efda",
+      "email": "new@email.com",
+      "password": "$2a$10$Fq/u2U0Kda5LBP5.DkYHhuOaM9ZsYAp1AHeqvq7ko0BxaacWokwKi",
+      "username": "TEST LOGGER 11"
+    },
+    {
+      "id": "879ae90d-5409-4d25-bf4d-1c93a7799f13",
+      "email": "js@email.com",
+      "password": "$2a$10$jCpK3jiIbEeWIUzafpwhrOdAOManxrLg9fN6/.qq3OUdZ4pNgdt/K",
+      "username": "TEST LOGGER 12"
     }
   ],
   "tasks": [
