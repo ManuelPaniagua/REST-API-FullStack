@@ -15,3 +15,5 @@ info: [90mPOST /task[39m [32m200[39m [90m2ms[39m {"meta":{},"timestamp":"2
 info: [90mPOST /login[39m [33m400[39m [90m1ms[39m {"meta":{},"timestamp":"2024-06-28T09:20:51.323Z"}
 info: [90mPOST /register[39m [32m200[39m [90m138ms[39m {"meta":{},"timestamp":"2024-06-28T09:22:24.953Z"}
 info: [90mPOST /login[39m [32m200[39m [90m217ms[39m {"meta":{},"timestamp":"2024-06-28T09:23:07.153Z"}
+info: [90mGET /task[39m [32m200[39m [90m2ms[39m {"meta":{},"timestamp":"2024-06-28T09:38:22.690Z"}
+{"level":"info","message":"GET /task successful","timestamp":"2024-06-28 11:38:22"}

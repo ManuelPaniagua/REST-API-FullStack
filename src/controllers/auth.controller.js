@@ -2,6 +2,7 @@ import bcryptjs from 'bcryptjs';
 import { v4 } from 'uuid';
 import { getConnection } from '../database.js';
 import { createAccessToken } from '../libs/jwt.js';
+import logger from '../middlewares/logger.js';
 
 export const registerUser = async (req, res) => {
     const { password } = req.body;
@@ -24,17 +25,18 @@ export const registerUser = async (req, res) => {
         // save token in a cookie
         res.cookie('token', token);
 
+        // Log successful registration
+        logger.info(`User registered successfully: ${newUser.email}`);
+
         // we don't need sent password to the backend
         res.json({
             id: newUser.id,
             email: newUser.email,
             username: newUser.username,
         });
-
-        // console.log(newUser);
-
-        // res.json(newUser);
     } catch (error) {
+        logger.error('Error registering user:', error);
+
         return res.status(500).send(error);
     }
 };
@@ -68,6 +70,9 @@ export const login = async (req, res) => {
         // create acces token
         const token = await createAccessToken({ id: userFound.id });
 
+        // Log successful login
+        logger.info(`User logged in successfully: ${email}`);
+
         // save token in a cookie
         res.cookie('token', token, { httpOnly: true });
 
@@ -78,6 +83,7 @@ export const login = async (req, res) => {
             username: userFound.username,
         });
     } catch (error) {
+        logger.error('Error logging in:', error);
         return res.status(500).send(error);
     }
 };
@@ -86,6 +92,7 @@ export const login = async (req, res) => {
 export const logout = (req, res) => {
     // reset token
     res.clearCookie('token');
+    logger.info('User logged out successfully');
     return res.status(200).json({ message: 'Logout succesful' });
 };
 
@@ -98,14 +105,20 @@ export const profile = async (req, res) => {
             (user) => user.id === userId,
         );
 
-        if (!userFound)
+        if (!userFound) {
+            logger.info(`Profile not found for user with ID ${userId}`);
             return res.status(400).json({ message: 'User not found' });
+        }
+        logger.info(
+            `Profile accessed successfully for user ${userFound.email}`,
+        );
         return res.json({
             id: userFound.id,
             email: userFound.email,
             username: userFound.username,
         });
     } catch (error) {
+        logger.error('Error fetching profile:', error);
         return res.status(500).json({ message: 'server error' });
     }
 };
