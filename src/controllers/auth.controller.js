@@ -5,7 +5,7 @@ import { createAccessToken } from '../libs/jwt.js';
 import logger from '../middlewares/logger.js';
 
 export const registerUser = async (req, res) => {
-    const { password } = req.body;
+    const { username, password, email } = req.body;
 
     try {
         const passwordHash = await bcryptjs.hash(password, 10);
@@ -43,9 +43,8 @@ export const registerUser = async (req, res) => {
 
 // Login
 export const login = async (req, res) => {
-    const { email, password } = req.body;
-
     try {
+        const { email, password } = req.body;
         const db = getConnection();
 
         // Find user by email
@@ -54,6 +53,7 @@ export const login = async (req, res) => {
         );
 
         if (!userFound) {
+            logger.info(`Password does not match for user with email ${email}`);
             return res
                 .status(400)
                 .json({ message: ' Invalid Email or Password' });
@@ -62,9 +62,10 @@ export const login = async (req, res) => {
         const isMatch = await bcryptjs.compare(password, userFound.password);
 
         if (!isMatch) {
+            logger.info(`Password does not match for user with email ${email}`);
             return res
                 .status(400)
-                .json({ message: ' Invalid Email or Password' });
+                .json({ message: 'Invalid Email or Password' });
         }
 
         // create acces token

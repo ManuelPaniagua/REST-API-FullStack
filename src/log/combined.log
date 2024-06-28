@@ -40,11 +40,3 @@ info: [90mGET /task/[39m [32m200[39m [90m1ms[39m {"meta":{},"timestamp":"2
 {"level":"info","message":"GET /task successful","timestamp":"2024-06-28 12:57:17"}
 info: [90mGET /task/d4943d9c-a34e-4999-8eaa-61674fea7d6f[39m [32m200[39m [90m0ms[39m {"meta":{},"timestamp":"2024-06-28T10:57:25.769Z"}
 {"level":"info","message":"GET /task by Id successful","timestamp":"2024-06-28 12:57:25"}
-{"level":"info","message":"Password does not match for user with email email@email.com","timestamp":"2024-06-28 14:05:11"}
-info: [90mPOST /login[39m [33m400[39m [90m139ms[39m {"meta":{},"timestamp":"2024-06-28T12:05:11.748Z"}
-{"level":"info","message":"User registered successfully: email@email.com","timestamp":"2024-06-28 14:05:28"}
-info: [90mPOST /register[39m [32m200[39m [90m123ms[39m {"meta":{},"timestamp":"2024-06-28T12:05:28.125Z"}
-{"level":"info","message":"Password does not match for user with email email@email.com","timestamp":"2024-06-28 14:05:38"}
-info: [90mPOST /login[39m [33m400[39m [90m116ms[39m {"meta":{},"timestamp":"2024-06-28T12:05:38.452Z"}
-{"level":"info","message":"Password does not match for user with email email@email.com","timestamp":"2024-06-28 14:05:44"}
-info: [90mPOST /login[39m [33m400[39m [90m117ms[39m {"meta":{},"timestamp":"2024-06-28T12:05:44.305Z"}

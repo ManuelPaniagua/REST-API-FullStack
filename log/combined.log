@@ -1,0 +1,40 @@
+info: [90mGET /task/d4943d9c-a34e-4999-8eaa-61674fea7d6f[39m [32m200[39m [90m3ms[39m {"meta":{},"timestamp":"2024-06-28T11:27:10.775Z"}
+{"level":"info","message":"GET /task by Id successful","timestamp":"2024-06-28 13:27:10"}
+info: [90mGET /task/[39m [32m200[39m [90m0ms[39m {"meta":{},"timestamp":"2024-06-28T11:27:16.917Z"}
+{"level":"info","message":"GET /task successful","timestamp":"2024-06-28 13:27:16"}
+info: [90mGET /task/register[39m [33m404[39m [90m1ms[39m {"meta":{},"timestamp":"2024-06-28T11:27:41.953Z"}
+info: [90mPOST /task/register[39m [33m404[39m [90m1ms[39m {"meta":{},"timestamp":"2024-06-28T11:27:45.071Z"}
+{"level":"info","message":"User registered successfully: email@email.com","timestamp":"2024-06-28 13:28:08"}
+info: [90mPOST /register[39m [32m200[39m [90m142ms[39m {"meta":{},"timestamp":"2024-06-28T11:28:08.049Z"}
+info: [90mPOST /login[39m [33m400[39m [90m116ms[39m {"meta":{},"timestamp":"2024-06-28T11:29:24.532Z"}
+info: [90mPOST /login[39m [33m400[39m [90m113ms[39m {"meta":{},"timestamp":"2024-06-28T11:29:49.184Z"}
+info: [90mPOST /login[39m [33m400[39m [90m121ms[39m {"meta":{},"timestamp":"2024-06-28T11:29:58.859Z"}
+{"level":"info","message":"User registered successfully: email@email.com","timestamp":"2024-06-28 13:30:15"}
+info: [90mPOST /register[39m [32m200[39m [90m119ms[39m {"meta":{},"timestamp":"2024-06-28T11:30:15.349Z"}
+info: [90mPOST /login[39m [33m400[39m [90m116ms[39m {"meta":{},"timestamp":"2024-06-28T11:30:31.460Z"}
+info: [90mPOST /login[39m [33m400[39m [90m117ms[39m {"meta":{},"timestamp":"2024-06-28T11:31:02.847Z"}
+info: [90mPOST /login[39m [33m400[39m [90m118ms[39m {"meta":{},"timestamp":"2024-06-28T11:31:12.482Z"}
+info: [90mPOST /login[39m [33m400[39m [90m128ms[39m {"meta":{},"timestamp":"2024-06-28T11:33:25.984Z"}
+{"level":"info","message":"User registered successfully: email@email.com","timestamp":"2024-06-28 13:33:47"}
+info: [90mPOST /register[39m [32m200[39m [90m122ms[39m {"meta":{},"timestamp":"2024-06-28T11:33:47.341Z"}
+info: [90mPOST /login[39m [33m400[39m [90m115ms[39m {"meta":{},"timestamp":"2024-06-28T11:34:01.320Z"}
+info: [90mPOST /login[39m [33m400[39m [90m114ms[39m {"meta":{},"timestamp":"2024-06-28T11:34:04.620Z"}
+{"level":"info","message":"User registered successfully: email@email.com","timestamp":"2024-06-28 13:44:00"}
+info: [90mPOST /register[39m [32m200[39m [90m139ms[39m {"meta":{},"timestamp":"2024-06-28T11:44:00.588Z"}
+info: [90mPOST /login[39m [33m400[39m [90m116ms[39m {"meta":{},"timestamp":"2024-06-28T11:44:16.151Z"}
+info: [90mPOST /login[39m [33m400[39m [90m128ms[39m {"meta":{},"timestamp":"2024-06-28T11:49:55.928Z"}
+{"level":"info","message":"User logged out successfully","timestamp":"2024-06-28 13:54:58"}
+info: [90mPOST /logout[39m [32m200[39m [90m2ms[39m {"meta":{},"timestamp":"2024-06-28T11:54:58.972Z"}
+{"level":"info","message":"Password does not match for user with email ail@email.com","timestamp":"2024-06-28 13:55:09"}
+info: [90mPOST /login[39m [33m400[39m [90m0ms[39m {"meta":{},"timestamp":"2024-06-28T11:55:09.688Z"}
+info: [90mPOST /login[39m [33m400[39m [90m115ms[39m {"meta":{},"timestamp":"2024-06-28T11:55:19.321Z"}
+info: [90mPOST /login[39m [33m400[39m [90m116ms[39m {"meta":{},"timestamp":"2024-06-28T11:55:24.106Z"}
+{"level":"info","message":"User registered successfully: email@email.com","timestamp":"2024-06-28 13:56:06"}
+info: [90mPOST /register[39m [32m200[39m [90m123ms[39m {"meta":{},"timestamp":"2024-06-28T11:56:06.435Z"}
+info: [90mPOST /login[39m [33m400[39m [90m117ms[39m {"meta":{},"timestamp":"2024-06-28T11:56:19.229Z"}
+{"level":"info","message":"Password does not match for user with email email@email.com","timestamp":"2024-06-28 14:02:03"}
+info: [90mPOST /login[39m [33m400[39m [90m138ms[39m {"meta":{},"timestamp":"2024-06-28T12:02:03.988Z"}
+{"level":"info","message":"Password does not match for user with email email@email.com","timestamp":"2024-06-28 14:04:06"}
+info: [90mPOST /login[39m [33m400[39m [90m136ms[39m {"meta":{},"timestamp":"2024-06-28T12:04:06.230Z"}
+{"level":"info","message":"Password does not match for user with email email@email.com","timestamp":"2024-06-28 14:04:10"}
+info: [90mPOST /login[39m [33m400[39m [90m115ms[39m {"meta":{},"timestamp":"2024-06-28T12:04:10.275Z"}

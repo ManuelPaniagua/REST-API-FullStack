@@ -71,6 +71,48 @@
       "email": "email@email.com",
       "password": "$2a$10$Ox1yPeVuIDYKQxhafh3.VuxU3i.5RYcchb7JoArkonZTIJdYwbJCa",
       "username": "TEST LOGGER 2"
+    },
+    {
+      "id": "c803d117-ea5d-45d6-b5a2-9fe1c78c1c7b",
+      "email": "email@email.com",
+      "password": "$2a$10$IeOnyjTyrDUszJuHeQIeQO3o6gBM5qnYHh3.UNI1exVRPQZF8wFda",
+      "username": "TEST LOGGER 3"
+    },
+    {
+      "id": "aa0672d9-8a81-4ee5-9693-16a11727144d",
+      "email": "email@email.com",
+      "password": "$2a$10$He4QIMJMZasGOQcojZABCuHJKSomXSvhs4cnn3Vmxov7CYTtQIGDu",
+      "username": "TEST LOGGER 4"
+    },
+    {
+      "id": "7bc27c0b-010d-4fbe-8014-c9541460db30",
+      "email": "email@email.com",
+      "password": "$2a$10$LUYKxjG2yRMgFKI1JLvLg.GCTX8mgeJLVWRFvUPOsurnJH6b8dEDK",
+      "username": "TEST LOGGER 5 "
+    },
+    {
+      "id": "d6efd2f4-633f-4899-9bb6-93bcb1e30d1c",
+      "email": "email@email.com",
+      "password": "$2a$10$84dKp8KL9dgHYpf6GaEIX.EmJIbzp4VUjE9JFQAwcCn8KKi8TNyY2",
+      "username": "TEST LOGGER 6"
+    },
+    {
+      "id": "66160318-0517-460d-9d18-33c27ea0b2d6",
+      "email": "email@email.com",
+      "password": "$2a$10$aa0AU2dcXeDh0yGARKYSYeAD.r/CyPzplnP09u5uUX8AfWLhiwGDS",
+      "username": "TEST LOGGER 6"
+    },
+    {
+      "id": "426e3f9a-940b-403a-8c82-81cb760a7ead",
+      "email": "email@email.com",
+      "password": "$2a$10$JivppBbCvp51RBNCboBM.u5aLzML4.ochAkf86nkPQLP8mgdlod6q",
+      "username": "TEST LOGGER 7"
+    },
+    {
+      "id": "492ec666-47d3-41c4-bf7a-59a1d9d4f620",
+      "email": "email@email.com",
+      "password": "$2a$10$9fKBJuzz3gDaShaajH9ZEuRAbxa6hh5aBBT0ZFdEo1CcQ4xkyqmCy",
+      "username": "TEST LOGGER 8"
     }
   ],
   "tasks": [
