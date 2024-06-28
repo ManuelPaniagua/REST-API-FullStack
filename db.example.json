@@ -1,0 +1,16 @@
+{
+    "tasks": [
+        {
+            "id": "a9bd4eb7-d3e4-4009-b0b6-6de508474208",
+            "name": "TASK 1",
+            "description": "New TASK"
+        }
+    ],
+    "users": [
+        {
+            "id": "ead198d7-b500-4b5c-9f10-ba16ef343760",
+            "email": "js@email.com",
+            "password": "$2a$10$Rcjjb6c/jaxKZjnk8Pf0TOmz3mPk154TS6XEDhB0SusMJUD2/HCRK"
+        }
+    ]
+}
