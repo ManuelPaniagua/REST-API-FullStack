@@ -12,6 +12,7 @@ export const getTasks = (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 };
+
 export const createTask = async (req, res) => {
     const newTask = {
         id: v4(),
@@ -32,6 +33,7 @@ export const createTask = async (req, res) => {
         return res.status(500).send(error);
     }
 };
+
 export const getTask = (req, res) => {
     try {
         const taskFound = getConnection().data.tasks.find(
@@ -47,6 +49,7 @@ export const getTask = (req, res) => {
         return res.status(500).send(error);
     }
 };
+
 export const updateTask = async (req, res) => {
     try {
         const db = getConnection();
@@ -73,6 +76,7 @@ export const updateTask = async (req, res) => {
         return res.status(500).send(error);
     }
 };
+
 export const deleteTask = async (req, res) => {
     try {
         const db = getConnection();
