@@ -13,7 +13,7 @@ export const registerUser = async (req, res) => {
         const db = getConnection();
         const existingUser = db.data.users.find((user) => user.email === email);
         if (existingUser) {
-            return res.status(400).json({ error: 'Email already exists' });
+            return res.status(400).json(['Email already exists']);
         }
 
         const passwordHash = await bcryptjs.hash(password, 10);
