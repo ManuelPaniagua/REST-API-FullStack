@@ -7,8 +7,14 @@ export const getTasks = (req, res) => {
     try {
         const userId = req.user.id;
         const db = getConnection();
-        const userTaks = db.data.tasks.filter((task) => task.user === userId);
-        res.json(userTaks);
+        const userTasks = db.data.tasks.filter((task) => task.user === userId);
+        const tasksWithUserDetails = userTasks.map((task) => {
+            // Fetch user details based on userId (pseudo code)
+            const user = db.data.users.find((user) => user.id === task.user);
+            return { ...task, user }; // Merge user details into task object
+        });
+
+        res.json(tasksWithUserDetails);
         logger.info('GET /task successful');
     } catch (error) {
         logger.error('GET /task failed', error);
@@ -102,6 +108,7 @@ export const countTasks = (req, res) => {
     res.json(totalTasks);
 };
 
+// Testing purpouses
 export const deleteAllTasks = async (req, res) => {
     try {
         const userId = req.user.id;
