@@ -1,6 +1,7 @@
 import { v4 } from 'uuid';
 import { getConnection } from '../database.js';
 import logger from '../middlewares/logger.js';
+import Task from '../models/task.model.js';
 
 export const getTasks = (req, res) => {
     try {
@@ -12,13 +13,12 @@ export const getTasks = (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 };
+
 export const createTask = async (req, res) => {
     const newTask = {
         id: v4(),
         name: req.body.name,
         description: req.body.description,
-
-        // ...req.body     //other option instead specify name and description
     };
     try {
         const db = getConnection();
@@ -32,6 +32,7 @@ export const createTask = async (req, res) => {
         return res.status(500).send(error);
     }
 };
+
 export const getTask = (req, res) => {
     try {
         const taskFound = getConnection().data.tasks.find(
@@ -47,6 +48,7 @@ export const getTask = (req, res) => {
         return res.status(500).send(error);
     }
 };
+
 export const updateTask = async (req, res) => {
     try {
         const db = getConnection();
@@ -73,6 +75,7 @@ export const updateTask = async (req, res) => {
         return res.status(500).send(error);
     }
 };
+
 export const deleteTask = async (req, res) => {
     try {
         const db = getConnection();
