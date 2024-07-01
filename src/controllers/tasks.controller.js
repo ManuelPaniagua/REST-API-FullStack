@@ -15,12 +15,9 @@ export const getTasks = (req, res) => {
 };
 
 export const createTask = async (req, res) => {
-    const newTask = {
-        id: v4(),
-        name: req.body.name,
-        description: req.body.description,
-    };
+    const { name, description } = req.body;
     try {
+        const newTask = new Task(name, description);
         const db = getConnection();
         db.data.tasks.push(newTask);
         await db.write();

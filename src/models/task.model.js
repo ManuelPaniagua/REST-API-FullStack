@@ -7,6 +7,8 @@ class TaskSchema {
         this.id = uuidv4();
         this.name = String(name);
         this.description = String(description);
+        this.createdAt = new Date().toISOString();
+        this.updatedAt = new Date().toISOString();
     }
 }
 
