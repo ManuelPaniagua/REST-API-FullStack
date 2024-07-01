@@ -5,8 +5,10 @@ import Task from '../models/task.model.js';
 
 export const getTasks = (req, res) => {
     try {
+        const userId = req.user.id;
         const db = getConnection();
-        res.json(db.data.tasks);
+        const userTaks = db.data.tasks.filter((task) => task.user === userId);
+        res.json(userTaks);
         logger.info('GET /task successful');
     } catch (error) {
         logger.error('GET /task failed', error);
@@ -98,4 +100,22 @@ export const deleteTask = async (req, res) => {
 export const countTasks = (req, res) => {
     const totalTasks = getConnection().data.tasks.length;
     res.json(totalTasks);
+};
+
+export const deleteAllTasks = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const db = getConnection();
+
+        db.data.tasks = [];
+
+        // Write the updated data back to your database
+        await db.write();
+
+        res.json({ message: 'All tasks deleted successfully' });
+        logger.info('DELETE /tasks success');
+    } catch (error) {
+        logger.error('DELETE /tasks failed', error);
+        return res.status(500).send(error);
+    }
 };
