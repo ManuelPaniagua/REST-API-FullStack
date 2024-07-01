@@ -55,7 +55,7 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 // Routes
 app.use(taskRoutes);
-app.use(authRoutes);
+app.use('/api', authRoutes);
 
 // Initialize the database before starting the server
 createConnection().catch((err) =>
