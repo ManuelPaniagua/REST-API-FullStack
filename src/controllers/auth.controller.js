@@ -9,11 +9,17 @@ export const registerUser = async (req, res) => {
     const { username, email, password } = req.body;
 
     try {
+        // Check if email already exists in database
+        const db = getConnection();
+        const existingUser = db.data.users.find((user) => user.email === email);
+        if (existingUser) {
+            return res.status(400).json({ error: 'Email already exists' });
+        }
+
         const passwordHash = await bcryptjs.hash(password, 10);
 
         // Create a new User object
         const newUser = new User(username, email, passwordHash);
-        const db = getConnection();
         db.data.users.push(newUser);
         await db.write();
 
