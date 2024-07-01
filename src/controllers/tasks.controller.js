@@ -16,8 +16,9 @@ export const getTasks = (req, res) => {
 
 export const createTask = async (req, res) => {
     const { name, description } = req.body;
+    const userId = req.user.id;
     try {
-        const newTask = new Task(name, description);
+        const newTask = new Task(name, description, userId);
         const db = getConnection();
         db.data.tasks.push(newTask);
         await db.write();
