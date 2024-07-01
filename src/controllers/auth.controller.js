@@ -3,18 +3,16 @@ import { v4 } from 'uuid';
 import { getConnection } from '../database.js';
 import { createAccessToken } from '../libs/jwt.js';
 import logger from '../middlewares/logger.js';
+import User from '../models/user.model.js';
 
 export const registerUser = async (req, res) => {
-    const { password } = req.body;
+    const { username, email, password } = req.body;
 
     try {
         const passwordHash = await bcryptjs.hash(password, 10);
-        const newUser = {
-            id: v4(),
-            email: req.body.email,
-            password: passwordHash,
-            username: req.body.username,
-        };
+
+        // Create a new User object
+        const newUser = new User(username, email, passwordHash);
         const db = getConnection();
         db.data.users.push(newUser);
         await db.write();
@@ -33,6 +31,7 @@ export const registerUser = async (req, res) => {
             id: newUser.id,
             email: newUser.email,
             username: newUser.username,
+            createdAt: newUser.createdAt,
         });
     } catch (error) {
         logger.error('Error registering user:', error);
