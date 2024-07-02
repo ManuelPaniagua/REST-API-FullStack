@@ -4,6 +4,8 @@ import { getConnection } from '../database.js';
 import { createAccessToken } from '../libs/jwt.js';
 import logger from '../middlewares/logger.js';
 import User from '../models/user.model.js';
+import jwt from 'jsonwebtoken';
+import { TOKEN_SECRET } from '../config.js';
 
 export const registerUser = async (req, res) => {
     const { username, email, password } = req.body;
@@ -79,7 +81,7 @@ export const login = async (req, res) => {
         logger.info(`User logged in successfully: ${email}`);
 
         // save token in a cookie
-        res.cookie('token', token, { httpOnly: true });
+        res.cookie('token', token);
 
         // we don't need sent password to the backend
         res.json({
@@ -125,5 +127,37 @@ export const profile = async (req, res) => {
     } catch (error) {
         logger.error('Error fetching profile:', error);
         return res.status(500).json({ message: 'server error' });
+    }
+};
+
+export const verifyToken = async (req, res) => {
+    const { token } = req.cookies;
+
+    if (!token) {
+        return res.send(false);
+    }
+
+    try {
+        const decoded = jwt.verify(token, TOKEN_SECRET);
+        const db = getConnection();
+        const userFound = db.data.users.find((user) => user.id === decoded.id);
+
+        if (!userFound) {
+            logger.info('Token unauthorized');
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
+
+        logger.info('User token  successfully');
+
+        // Return user information if authentication is successful
+        return res.json({
+            id: userFound.id,
+            username: userFound.username,
+            email: userFound.email,
+        });
+    } catch (error) {
+        console.error('Error verifying token:', error);
+        logger.info('Token unauthorized');
+        return res.status(401).json({ message: 'Unauthorized' });
     }
 };
