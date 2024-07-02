@@ -28,7 +28,12 @@ const swaggerDocument = YAML.load(swaggerYAMLPath);
 // app.set("port", process.env.PORT || 3000);
 
 // middlewares
-app.use(cors()); //needed for http request
+app.use(
+    cors({
+        origin: 'http://localhost:5173',
+        credentials: true,
+    }),
+); //needed for http request
 app.use(express.json()); //save the data in the req.body
 app.use(cookieParser());
 app.use(httpLogger);
