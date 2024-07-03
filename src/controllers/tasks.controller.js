@@ -1,26 +1,32 @@
 import { v4 } from 'uuid';
 import { getConnection } from '../database.js';
 import logger from '../middlewares/logger.js';
+import Task from '../models/task.model.js';
 
 export const getTasks = (req, res) => {
     try {
+        const userId = req.user.id;
         const db = getConnection();
-        res.json(db.data.tasks);
+        const userTasks = db.data.tasks.filter((task) => task.user === userId);
+        const tasksWithUserDetails = userTasks.map((task) => {
+            // Fetch user details based on userId (pseudo code)
+            const user = db.data.users.find((user) => user.id === task.user);
+            return { ...task, user }; // Merge user details into task object
+        });
+
+        res.json(tasksWithUserDetails);
         logger.info('GET /task successful');
     } catch (error) {
         logger.error('GET /task failed', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 };
-export const createTask = async (req, res) => {
-    const newTask = {
-        id: v4(),
-        name: req.body.name,
-        description: req.body.description,
 
-        // ...req.body     //other option instead specify name and description
-    };
+export const createTask = async (req, res) => {
+    const { name, description } = req.body;
+    const userId = req.user.id;
     try {
+        const newTask = new Task(name, description, userId);
         const db = getConnection();
         db.data.tasks.push(newTask);
         await db.write();
@@ -32,6 +38,7 @@ export const createTask = async (req, res) => {
         return res.status(500).send(error);
     }
 };
+
 export const getTask = (req, res) => {
     try {
         const taskFound = getConnection().data.tasks.find(
@@ -47,6 +54,7 @@ export const getTask = (req, res) => {
         return res.status(500).send(error);
     }
 };
+
 export const updateTask = async (req, res) => {
     try {
         const db = getConnection();
@@ -73,6 +81,7 @@ export const updateTask = async (req, res) => {
         return res.status(500).send(error);
     }
 };
+
 export const deleteTask = async (req, res) => {
     try {
         const db = getConnection();
@@ -97,4 +106,23 @@ export const deleteTask = async (req, res) => {
 export const countTasks = (req, res) => {
     const totalTasks = getConnection().data.tasks.length;
     res.json(totalTasks);
+};
+
+// Testing purpouses
+export const deleteAllTasks = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const db = getConnection();
+
+        db.data.tasks = [];
+
+        // Write the updated data back to your database
+        await db.write();
+
+        res.json({ message: 'All tasks deleted successfully' });
+        logger.info('DELETE /tasks success');
+    } catch (error) {
+        logger.error('DELETE /tasks failed', error);
+        return res.status(500).send(error);
+    }
 };

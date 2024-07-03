@@ -28,7 +28,12 @@ const swaggerDocument = YAML.load(swaggerYAMLPath);
 // app.set("port", process.env.PORT || 3000);
 
 // middlewares
-app.use(cors()); //needed for http request
+app.use(
+    cors({
+        origin: 'http://localhost:5173',
+        credentials: true,
+    }),
+); //needed for http request
 app.use(express.json()); //save the data in the req.body
 app.use(cookieParser());
 app.use(httpLogger);
@@ -54,8 +59,8 @@ app.use(
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 // Routes
-app.use(taskRoutes);
-app.use(authRoutes);
+app.use('/api', taskRoutes);
+app.use('/api/auth', authRoutes);
 
 // Initialize the database before starting the server
 createConnection().catch((err) =>
