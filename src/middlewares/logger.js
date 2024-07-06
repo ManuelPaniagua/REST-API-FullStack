@@ -50,9 +50,17 @@ const transports = [
     }),
     new winston.transports.File({
         filename: './log/error.log',
+        maxsize: 5 * 1024 * 1024, // 5MB
+        maxFiles: 5,
         level: 'error',
     }),
     new winston.transports.File({ filename: './log/combined.log' }),
+
+    new winston.transports.File({
+        filename: './log/combined.log',
+        maxsize: 5 * 1024 * 1024, // 5MB
+        maxFiles: 5,
+    }),
 ];
 
 // Create Winston logger instance
